@@ -1,0 +1,91 @@
+*   /* <-- Para todo el documento html */
+{
+    margin: 0;
+    padding: 0;
+    font-family: consolas;
+}
+
+section
+{
+    padding: 50px;
+    background: black;
+}
+
+section h2
+{
+    font-size: 2.5em;
+    color: white;
+}
+
+section p
+{
+    font-size: 1.2em;
+    color: white;
+    /* Justificar texto */
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Modificar el scroll bar de la pagina por defecto */
+::-webkit-scrollbar
+{
+    width: 0;
+}
+
+/* Identificadores que hemos definido en el html */
+#scrollPath /* Fondo de la scroll bar */
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);  /* Fonddo negro pero con un poco de transparencia */
+}
+
+#progressbar    /* Barra de progreso */
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    border-radius: 10px;    /* Para que la barra acabe y empiece en circulo y no recto */
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate
+{
+    0%, 100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    50%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Crear una especie de aura al rededor de la barra */
+#progressbar:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px);
+}
+
+#progressbar:after
+{
+    content: '';
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
+}
