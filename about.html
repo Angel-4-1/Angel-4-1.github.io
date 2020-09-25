@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VICENTE</title>
+    <link rel="stylesheet" type="text/css" href="scrollProgressBarStyle.css">
+    <link rel="shortcut icon" type="image/x-icon" href="icon.png">
+</head>
+<body>
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+
+    <section class="sec-curve">
+        <h1 class="big-white">WELCOME</h1>
+        <span class="curve">
+            <img src="images/curve.png">
+        </span>
+    </section>
+    
+    <section>
+        <ul>
+            <li><span>></span><a href="" data-text="Home">Home</a></li>
+            <li><span>></span><a href="https://angel-4-1.github.io/cubes" data-text="Projects">Projects</a></li>
+            <li><span>></span><a href="https://angel-4-1.github.io/games" data-text="Games">Games</a></li>
+            <li><span>></span><a href="https://angel-4-1.github.io/about" data-text="About">About</a></li>
+        </ul>
+    </section>
+    
+    <script type="text/javascript">
+        var progress = document.getElementById("progressbar");
+        var total_height = document.body.scrollHeight - window.innerHeight;
+
+        window.onscroll = function() {
+            var progress_height = (window.pageYOffset / total_height) * 100;
+            progress.style.height = progress_height + "%";
+
+            //curve animation
+            let scroll = document.querySelector('.curve');
+            let value = 1 + window.scrollY/-500;
+            scroll.style.transform = `scaleY(${value})`;
+        }
+    </script>
+</body>
+</html>
