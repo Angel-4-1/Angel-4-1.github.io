@@ -47,7 +47,7 @@ body {
     font-size: 5em;
     line-height: 0.7em;
     color: rgb(255, 255, 255);
-    margin-top: -400px;
+    margin-top: -350px;
 }
 
 .container h2 span {
@@ -139,7 +139,7 @@ body {
 /*Responsive grid*/
 @media only screen and (max-width: 900px) {
     .countdown {
-        margin-top: 600px;
+        margin-top: 650px;
         grid-template-columns: 1fr;
         grid-template-rows: 1.5fr 1.5fr 1.5fr 1fr;
         grid-template-areas:
