@@ -11,9 +11,10 @@ body {
     background-blend-mode: hard-light;
 }
 
-.container
+/*fixed box on the background*/
+.back
 {
-    position: absolute;
+    position: fixed;
     top: 80px;
     left: 80px;
     right: 80px;
@@ -28,12 +29,25 @@ body {
                 0 0 0 100px rgba(0,0,0,.1);
 }
 
+.container
+{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    right: 80px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .container h2 {
     text-align: center;
     font-size: 5em;
     line-height: 0.7em;
     color: rgb(255, 255, 255);
-    margin-top: -80px;
+    margin-top: -400px;
 }
 
 .container h2 span {
@@ -43,10 +57,18 @@ body {
     font-size: 0.5em;
 }
 
+/*Day countdown*/
 .countdown
 {
-    display: flex;
-    margin-top: 50px;
+    position: absolute;
+    display: grid;
+    margin-top: 100px;
+    
+    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr;
+    grid-template-areas:
+        "days hours minutes seconds";
+    grid-gap: 0px;
 }
 
 .countdown div
@@ -83,6 +105,8 @@ body {
     content: 'Days';
     font-size: 0.8em;
     background: rgb(21, 255, 0);
+
+    grid-area: days;
 }
 
 .countdown #hour::before
@@ -90,6 +114,8 @@ body {
     content: 'Hours';
     font-size: 0.75em;
     background: rgb(240, 37, 37);
+
+    grid-area: hours;
 }
 
 .countdown #minute::before
@@ -97,6 +123,8 @@ body {
     content: 'Minutes';
     font-size: 0.75em;
     background: rgb(24, 182, 255);
+
+    grid-area: minutes;
 }
 
 .countdown #second::before
@@ -104,4 +132,20 @@ body {
     content: 'Seconds';
     font-size: 0.75em;
     background: rgb(253, 77, 230);
+
+    grid-area: seconds;
+}
+
+/*Responsive grid*/
+@media only screen and (max-width: 900px) {
+    .countdown {
+        margin-top: 600px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5fr 1.5fr 1.5fr 1fr;
+        grid-template-areas:
+            "days"
+            "hours"
+            "minutes"
+            "seconds";
+    }
 }
