@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #000 url(bg.jpg);
+    background: #000 url(bg.jpeg);
     background-attachment: fixed;
     background-blend-mode: hard-light;
 }
@@ -19,7 +19,7 @@ body {
     left: 80px;
     right: 80px;
     bottom: 80px;
-    background: url(bg.jpg);
+    background: url(bg.jpeg);
     background-attachment: fixed;
     display: flex;
     justify-content: center;
