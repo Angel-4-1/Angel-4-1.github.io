@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resaponsive canvas</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+
+        body {
+            align-content: space-around;
+            background-color: #202830;
+            color: #ffffff;
+            
+            display:grid;
+            grid-template-columns:auto;
+            grid-template-rows:auto auto auto;
+
+            justify-items: center;
+            
+            padding: 0 8px;
+            width: 100vw;
+            height: 100vh;
+
+            font-family: 'Gill Sans', sans-serif;
+
+            overflow: hidden;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>RESPONSIVE CANVAS</h1>
+    
+    <canvas id="canvas"></canvas>
+
+    <script>
+        //canvas original
+        var canvas = null;
+        var ctx = null;
+
+        //canvas escalado
+        var display_canvas = null;   
+        var display = null;
+
+        function main() {
+            /**INSTANCIAR VARIABLES INICIALES**/
+            canvas = document.createElement("canvas");
+            ctx = canvas.getContext('2d');
+            display_canvas = document.querySelector("canvas");
+            display = document.querySelector("canvas").getContext("2d");
+
+            //Dimensiones canvas
+            ctx.canvas.width = 900;
+            ctx.canvas.height = 600;
+
+            window.addEventListener("resize", resize);
+
+            resize();
+
+            render();
+        }
+
+        function resize() {
+
+            display.canvas.width = document.documentElement.clientWidth - 32;
+
+            if (display.canvas.width > document.documentElement.clientHeight) {
+                display.canvas.width = document.documentElement.clientHeight;
+            }
+
+            display.canvas.height = display.canvas.width * 0.65;
+            display.imageSmoothingEnabled = false;
+        }
+
+        function draw() {
+            //fondo
+            ctx.fillStyle = "#7ec0ff";
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            //suelo
+            ctx.fillStyle = "#009900";
+            ctx.fillRect(0, 500, ctx.canvas.width, 100);
+            //tronco
+            ctx.fillStyle = "#cc9900";
+            ctx.fillRect(100, 300, 50, 220);
+            //copa arbol
+            ctx.fillStyle = "#99ff66";
+            ctx.beginPath();
+            ctx.arc(125, 270, 75, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function render () {
+            
+            draw();
+
+            //dibujamos todo lo que tenemos en el canvas al canvas escalado
+            display.drawImage(ctx.canvas, 0, 0, ctx.canvas.width, ctx.canvas.height, 0, 0, display.canvas.width, display.canvas.height);
+
+            requestAnimationFrame( render );
+        }
+
+        main();
+        
+    </script>
+</body>
+</html>
