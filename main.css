@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Comfortaa&display=swap);
 *
 {
     margin: 0;
@@ -30,12 +31,12 @@ html
     align-items: center;
     height: 100vh;
     position: relative;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Comfortaa', Helvetica;
     color: #ffeded;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 7vmin;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 section:nth-child(odd)
@@ -43,6 +44,15 @@ section:nth-child(odd)
     justify-content: flex-end;
 }
 
+.presentation
+{
+    width: 60%;
+}
+
+.name
+{
+    color: aqua;
+}
 .footers 
 {
     position: fixed;
@@ -58,8 +68,8 @@ section:nth-child(odd)
 
 .link:hover
 {
-    color: #4eb0d1;
-    transition: 1s;
+    color: aqua;
+    transition: 0.5s;
 }
 
 /*# sourceMappingURL=main.css.map*/
